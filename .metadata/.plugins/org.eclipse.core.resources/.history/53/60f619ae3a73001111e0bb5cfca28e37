@@ -1,5 +1,0 @@
-package interfaces;
-
-public interface IImageAnalysis {
-	public void analyse (BufferedImage img);
-}

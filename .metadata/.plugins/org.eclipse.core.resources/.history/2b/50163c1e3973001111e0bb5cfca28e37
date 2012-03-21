@@ -1,5 +1,0 @@
-
-public interface IImageAcquisition {
-	public void run () ;
-
-}

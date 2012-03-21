@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move 1 elements(s) to &apos;systemVideo/src/interfaces&apos;&#x0A;- Original project: &apos;systemVideo&apos;&#x0A;- Destination element: &apos;systemVideo/src/interfaces&apos;&#x0A;- Original element: &apos;IImageAcquisition.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;interfaces" element1="/src&lt;{IImageAcquisition.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" log="/src&lt;&#x09;/src&lt;interfaces" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1332322531908" units="1" version="1.0"/>
-</session>
