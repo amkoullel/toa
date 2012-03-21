@@ -1,2 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="interfaces.IImageAnalysis"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IContainer"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IStream"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IStreamCoder"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.ICodec"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IVideoResampler"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IPixelFormat"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IPacket"/>
+<fullyQualifiedTypeName name="com.xuggle.xuggler.IVideoPicture"/>
+<fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+</qualifiedTypeNameHistroy>

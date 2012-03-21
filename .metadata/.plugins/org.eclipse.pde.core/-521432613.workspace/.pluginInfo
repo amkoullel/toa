@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="501" localization="OSGI-INF/l10n/bundle" name="XugglerPlugin" project="xugglerPlugin"/>
+	<bundle bundleID="503" class="systemvideo.Activator" localization="OSGI-INF/l10n/bundle" name="SystemVideo" project="systemVideo"/>
+	<bundle bundleID="504" localization="OSGI-INF/l10n/bundle" name="ImageAcquistionVideo" project="imageAcquistionVideo"/>
+	<bundle bundleID="502" localization="OSGI-INF/l10n/bundle" name="JavacvPlugin" project="javacvPlugin"/>
+</map>

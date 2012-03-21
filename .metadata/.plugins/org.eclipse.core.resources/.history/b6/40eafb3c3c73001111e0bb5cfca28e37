@@ -1,0 +1,71 @@
+package imageacquistionvideo;
+
+import com.xuggle.xuggler.IContainer;
+import com.xuggle.xuggler.IStream;
+import com.xuggle.xuggler.IStreamCoder;
+import com.xuggle.xuggler.ICodec;
+import com.xuggle.xuggler.IVideoResampler;
+
+import interfaces.IImageAcquisition;
+import interfaces.IImageAnalysis;
+
+public class ImageAcquisitionVideo implements IImageAcquisition {
+	private IImageAnalysis imgAnalyse ;
+	private String file_name ;
+
+	public ImageAcquisitionVideo() {
+		// TODO Auto-generated constructor stub
+		file_name = "" ;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+		IContainer container = IContainer.make() ;
+		if (container.open(this.file_name , IContainer.Type.READ , null) < 0)
+			throw new IllegalArgumentException("Impossible d'ouvrir le fichier"+this.file_name);
+
+		
+		int numStreams = container.getNumStreams() ;
+		int videoStreamId = -1 ;
+		IStreamCoder videoCoder = null ;
+		
+		// Recherche du flux video dans le fichier 
+		for (int i = 0 ; i < numStreams ; ++i){
+			IStream stream = container.getStream(i);
+			IStreamCoder coder = stream.getStreamCoder() ;
+			
+			if (coder.getCodecType() == ICodec.Type.CODEC_TYPE_VIDEO) {
+				videoCoder = coder ;
+				videoStreamId = i ;
+				break ;
+			}
+		}
+		
+		if (videoStreamId == -1 )
+			throw new RuntimeException ("Impossible de trouver le flux video dans le conteneur" +container);
+		
+		if (videoCoder.open() < 0)
+			throw new RuntimeException ("Impossible d'ouvrir le flux video du conteneur" + container);
+		
+		IVideoResampler resampler = null ;
+		
+		//Convertir la video si le flux n'est pas encoder en RGB24
+		
+		if (videoCoder.getPixelType() != IPixelFormat.Type.RGB24) {
+			resampler = IVideoResampler.make(
+					videoCoder.getWidth(), videoCoder.getHeight() , IPixelFormat.Type.RGB24,
+					videoCoder.getWidth(), videoCoder.getHeight() , videoCoder.getPixelType()) ;
+			
+			if (resampler == null)
+				throw new RuntimeException ("Impossible d'obtenir un resampler ");
+	}
+
+	@Override
+	public void setIImageAnalysis(IImageAnalysis analyse) {
+		// TODO Auto-generated method stub
+		this.imgAnalyse = analyse ;
+	}
+
+}
