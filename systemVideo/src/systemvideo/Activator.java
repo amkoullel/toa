@@ -39,6 +39,20 @@ public class Activator extends AbstractUIPlugin {
 		}
 		return null ;
 	}
+	
+	public IImageAnalysis createImageAnalysis() {
+		// TODO Auto-generated method stub
+		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAnalysis")) {
+			//System.out.println(elt.getAttribute("name"));
+			try {
+				return (IImageAnalysis) elt.createExecutableExtension("class");
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -76,10 +90,5 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
-	}
-
-	public IImageAnalysis createImageAnalysis() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

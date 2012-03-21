@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import com.xuggle.xuggler.demos.VideoImage;
 
 import interfaces.IImageAnalysis;
+import interfaces.IImageReasoning;
 
 public class TestAnalyse implements IImageAnalysis {
 	
@@ -45,4 +46,10 @@ public class TestAnalyse implements IImageAnalysis {
 	  {
 	    System.exit(0);
 	  }
+
+	@Override
+	public void setIImageResoning(IImageReasoning imgR) {
+		// TODO Auto-generated method stub
+		
+	}
 }

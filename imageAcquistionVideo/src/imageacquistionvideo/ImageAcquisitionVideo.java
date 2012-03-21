@@ -114,9 +114,8 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 	@Override
 	public void setIImageAnalysis(IImageAnalysis analyse) {
 		// TODO Auto-generated method stub
-		//this.imgAnalyse = analyse ;
-		
-		this.imgAnalyse = new TestAnalyse() ;
+		this.imgAnalyse = analyse ;
+		//this.imgAnalyse = new TestAnalyse() ;
 	}
 
 }
