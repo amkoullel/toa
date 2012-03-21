@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 19.0-b09 (Sun Microsystems Inc.)
+Implementation-Vendor: www.xuggle.com
+Implementation-Title: xuggle-xuggler
+Implementation-Version: 5.0.0
+Main-Class: com.xuggle.xuggler.Converter
+Red5-Plugin-Main-Class: com.xuggle.xuggler.Global
+Red5-Plugin-Main-Method: init
+Class-Path: commons-cli.jar logback-classic.jar logback-core.jar slf4j
+ -api.jar
+

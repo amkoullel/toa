@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JavacvPlugin
+Bundle-SymbolicName: javacvPlugin
+Bundle-Version: 1.0.0
+Export-Package: com.googlecode.javacpp,
+ com.googlecode.javacpp.annotation,
+ com.googlecode.javacv,
+ com.googlecode.javacv.cpp
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
