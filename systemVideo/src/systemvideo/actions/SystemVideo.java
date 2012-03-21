@@ -1,10 +1,14 @@
 package systemvideo.actions;
 
+import interfaces.IImageAcquisition;
+import interfaces.IImageAnalysis;
+
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.jface.dialogs.MessageDialog;
+//import org.eclipse.jface.dialogs.MessageDialog;
+
 
 /**
  * Our sample action implements workbench action delegate.
@@ -16,6 +20,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
  */
 public class SystemVideo implements IWorkbenchWindowActionDelegate {
 	private IWorkbenchWindow window;
+	
+	private IImageAcquisition imgAcquisition ;
+	private IImageAnalysis imgAnalyse ;
 	/**
 	 * The constructor.
 	 */
@@ -29,10 +36,22 @@ public class SystemVideo implements IWorkbenchWindowActionDelegate {
 	 * @see IWorkbenchWindowActionDelegate#run
 	 */
 	public void run(IAction action) {
-		MessageDialog.openInformation(
+	/*	MessageDialog.openInformation(
 			window.getShell(),
 			"SystemVideo",
-			"Hello, Eclipse world");
+			"Hello, Eclipse world");*/
+		this.createObjects () ;
+		if (this.imgAcquisition != null)
+			this.imgAcquisition.run() ;
+		else
+			System.out.println("Erreur");
+	}
+	
+	private void createObjects() {
+		// TODO Auto-generated method stub
+		this.imgAnalyse = systemvideo.Activator.getDefault().createImageAnalysis();
+		this.imgAcquisition = systemvideo.Activator.getDefault().createImageAcquisiton() ;
+		this.imgAcquisition.setIImageAnalysis(this.imgAnalyse);
 	}
 
 	/**
