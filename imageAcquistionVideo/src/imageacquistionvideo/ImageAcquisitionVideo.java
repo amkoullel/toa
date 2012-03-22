@@ -2,6 +2,9 @@ package imageacquistionvideo;
 
 import java.awt.image.BufferedImage;
 
+import com.xuggle.mediatool.IMediaListener;
+import com.xuggle.mediatool.IMediaReader;
+import com.xuggle.mediatool.ToolFactory;
 import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.IPacket;
 import com.xuggle.xuggler.IPixelFormat;
@@ -22,7 +25,6 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		// TODO Auto-generated constructor stub
 		file_name = "/home/algassimou/test1.flv" ;
 	}
-
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
