@@ -2,7 +2,6 @@ package imageacquisitioncamera;
 
 import java.awt.image.BufferedImage;
 
-import com.xuggle.xuggler.IConfigurable;
 import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.IContainerFormat;
 import com.xuggle.xuggler.ICodec;
@@ -14,8 +13,8 @@ import com.xuggle.xuggler.IStream;
 import com.xuggle.xuggler.IStreamCoder;
 import com.xuggle.xuggler.IVideoPicture;
 import com.xuggle.xuggler.IVideoResampler;
-import com.xuggle.xuggler.Utils;
-import com.xuggle.xuggler.ICodec.ID;
+import com.xuggle.xuggler.video.ConverterFactory;
+import com.xuggle.xuggler.video.IConverter;
 
 
 import interfaces.IImageAcquisition;
@@ -31,13 +30,13 @@ public class ImageAcquisitionCamera implements IImageAcquisition {
 		this.driverName = "video4linux2" ;
 		this.deviceName = "/dev/video0" ;
 	}
-
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
 		IContainer container = IContainer.make();
-		System.out.println("Coucou");
-
+		
 	    // Devices, unlike most files, need to have parameters set in order
 	    // for Xuggler to know how to configure them.  For a webcam, these
 	    // parameters make sense
@@ -45,14 +44,14 @@ public class ImageAcquisitionCamera implements IImageAcquisition {
 	    
 	    // The timebase here is used as the camera frame rate
 	   // params.setTimeBase(IRational.make(30,1));
-		container.setProperty("TimeBase", IRational.make(30,1)) ;
+		container.setProperty("TimeBase", IRational.make(50,1)) ;
 		
 	    // we need to tell the driver what video with and height to use
 	   // params.setVideoWidth(320);
 		
-		container.setProperty("VideoWidth", 100) ;
+		container.setProperty("SetVideoWidth", 320) ;
 	   // params.setVideoHeight(240);
-		container.setProperty("setVideoHeight", 50) ;
+		container.setProperty("setVideoHeight", 240) ;
 		
 	    // and finally, we set these parameters on the container before opening
 	   // container.setParameters(params);
@@ -164,8 +163,11 @@ public class ImageAcquisitionCamera implements IImageAcquisition {
 	            if (newPic.getPixelType() != IPixelFormat.Type.BGR24)
 	              throw new RuntimeException("could not decode video as BGR 24 bit data in: " + deviceName);
 
-	            // Convert the BGR24 to an Java buffered image
-	            BufferedImage javaImage = Utils.videoPictureToImage(newPic);
+	            // Convert the BGR24 to an Java buffered image	            
+	            IConverter converter = ConverterFactory.createConverter(
+	            	      ConverterFactory.XUGGLER_BGR_24, newPic);
+	            
+	            BufferedImage javaImage = converter.toImage(newPic);
 	            this.imgAnalyse.analyse(javaImage);
 	          }
 	        }

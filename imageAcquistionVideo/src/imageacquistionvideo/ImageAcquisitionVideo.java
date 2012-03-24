@@ -2,9 +2,6 @@ package imageacquistionvideo;
 
 import java.awt.image.BufferedImage;
 
-import com.xuggle.mediatool.IMediaListener;
-import com.xuggle.mediatool.IMediaReader;
-import com.xuggle.mediatool.ToolFactory;
 import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.IPacket;
 import com.xuggle.xuggler.IPixelFormat;
@@ -13,6 +10,8 @@ import com.xuggle.xuggler.IStreamCoder;
 import com.xuggle.xuggler.ICodec;
 import com.xuggle.xuggler.IVideoPicture;
 import com.xuggle.xuggler.IVideoResampler;
+import com.xuggle.xuggler.video.ConverterFactory;
+import com.xuggle.xuggler.video.IConverter;
 
 import interfaces.IImageAcquisition;
 import interfaces.IImageAnalysis;
@@ -25,6 +24,8 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		// TODO Auto-generated constructor stub
 		file_name = "/home/algassimou/test1.flv" ;
 	}
+	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -101,8 +102,12 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 						else 
 							newPicture = picture ;
 						
-						
-						BufferedImage javaImage = com.xuggle.xuggler.Utils.videoPictureToImage(newPicture); 
+						 // Convert the BGR24 to an Java buffered image	            
+			            IConverter converter = ConverterFactory.createConverter(
+			            	      ConverterFactory.XUGGLER_BGR_24, newPicture);
+			            
+			            BufferedImage javaImage = converter.toImage(newPicture);
+
 						this.imgAnalyse.analyse(javaImage);
 					}
 				}
