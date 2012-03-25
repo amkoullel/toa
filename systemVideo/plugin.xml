@@ -28,5 +28,13 @@
          </action>
       </actionSet>
    </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="systemvideo.PreferencePage"
+            id="systemVideo.page1"
+            name="systemVideo">
+      </page>
+   </extension>
 
 </plugin>

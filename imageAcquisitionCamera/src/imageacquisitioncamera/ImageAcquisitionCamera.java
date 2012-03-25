@@ -27,10 +27,35 @@ public class ImageAcquisitionCamera implements IImageAcquisition {
 
 	public ImageAcquisitionCamera() {
 		// TODO Auto-generated constructor stub
-		this.driverName = "video4linux2" ;
-		this.deviceName = "/dev/video0" ;
+		
+		String name = System.getProperty ( "os.name" );
+
+		if (name.equals("Linux")) {
+			this.driverName = "video4linux2" ;
+			this.deviceName = "/dev/video0" ;
+		}
+		else if (name.equals("Window")) {
+			this.driverName = "vfwcap" ;
+			this.deviceName = "0" ; 
+		}
 	}
 	
+	public String getDriverName() {
+		return driverName;
+	}
+
+	public void setDriverName(String driverName) {
+		this.driverName = driverName;
+	}
+
+	public String getDeviceName() {
+		return deviceName;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
