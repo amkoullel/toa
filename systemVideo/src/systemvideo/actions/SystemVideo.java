@@ -40,14 +40,14 @@ public class SystemVideo implements IWorkbenchWindowActionDelegate {
 			window.getShell(),
 			"SystemVideo",
 			"Hello, Eclipse world");*/
-	/*	this.createObjects () ;
+	this.createObjects () ;
 		if (this.imgAcquisition != null)
 			this.imgAcquisition.run() ;
 		else
-			System.out.println("Erreur");*/
+			System.out.println("Erreur");
 		
-		String name = System.getProperty ( "os.name" );
-		System.out.println(name);
+		/*String name = System.getProperty ( "os.name" );
+		System.out.println(name);*/
 	}
 	
 	private void createObjects() {

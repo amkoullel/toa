@@ -31,7 +31,7 @@ public class Activator extends AbstractUIPlugin {
 		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAcquisition")) {
 			//System.out.println(elt.getAttribute("name"));
 			String name = elt.getAttribute("name").toLowerCase() ;
-			if (name.equals("camera")) {
+			if (!name.equals("camera")) {
 				try {
 					return (IImageAcquisition) elt.createExecutableExtension("class");
 				} catch (CoreException e) {

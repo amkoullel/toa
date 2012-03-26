@@ -22,7 +22,8 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 
 	public ImageAcquisitionVideo() {
 		// TODO Auto-generated constructor stub
-		file_name = "/home/algassimou/test1.flv" ;
+		//file_name = "/home/algassimou/test1.flv" ;
+		file_name = "/comptes/E07A946C/test.avi" ;
 	}
 	
 	@SuppressWarnings("deprecation")
