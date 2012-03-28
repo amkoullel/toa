@@ -4,7 +4,8 @@
    <extension
          point="systemVideo.imageAnalysis">
       <imageAnalysis
-            class="imageanalysis.ImageAnalysis">
+            class="imageanalysis.ImageAnalysis"
+            name="analyse">
       </imageAnalysis>
    </extension>
 

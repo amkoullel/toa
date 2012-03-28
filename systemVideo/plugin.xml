@@ -3,6 +3,8 @@
 <plugin>
    <extension-point id="imageAcquisition" name="image acquisition" schema="schema/imageAcquisition.exsd"/>
    <extension-point id="imageAnalysis" name="image analysis" schema="schema/imageAnalysis.exsd"/>
+   <extension-point id="imagePublish" name="image publish" schema="schema/imagePublish.exsd"/>
+   <extension-point id="imageReasoning" name="image reasoning" schema="schema/imageReasoning.exsd"/>
 
    <extension
          point="org.eclipse.ui.actionSets">

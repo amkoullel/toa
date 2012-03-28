@@ -19,18 +19,20 @@ import interfaces.IImageAnalysis;
 public class ImageAcquisitionVideo implements IImageAcquisition {
 	private IImageAnalysis imgAnalyse ;
 	private String file_name ;
+	int nb_frame ;
 
 	public ImageAcquisitionVideo() {
 		// TODO Auto-generated constructor stub
 		//file_name = "/home/algassimou/test1.flv" ;
 		file_name = "/comptes/E07A946C/test.avi" ;
+		nb_frame = 10 ;
 	}
 	
 	@SuppressWarnings("deprecation")
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-
+		System.out.println ("run") ;
 		IContainer container = IContainer.make() ;
 		if (container.open(this.file_name , IContainer.Type.READ , null) < 0)
 			throw new IllegalArgumentException("Impossible d'ouvrir le fichier"+this.file_name);
@@ -74,13 +76,22 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		
 		//Lit la video image par image
 		
+		int frame = 1 ;
 		IPacket packet = IPacket.make() ;
 		while (container.readNextPacket(packet) >= 0)
-		{
+		{		
+			System.out.println ("analyse") ;
 			if (packet.getStreamIndex() == videoStreamId) {
 				IVideoPicture picture = IVideoPicture.make(videoCoder.getPixelType() , 
 						videoCoder.getWidth() , videoCoder.getHeight()) ;
 			
+				if (frame != nb_frame) {
+					frame++ ;
+					continue ;
+				} 
+				else
+					frame = 1 ;
+				
 				int offset = 0 ;
 				
 				while (offset < packet.getSize()) {

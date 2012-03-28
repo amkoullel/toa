@@ -4,5 +4,8 @@ Bundle-Name: ImageAnalysis
 Bundle-SymbolicName: imageAnalysis;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: javacvPlugin;bundle-version="1.0.0",
- systemVideo;bundle-version="1.0.0"
+Require-Bundle: systemVideo;bundle-version="1.0.0"
+Bundle-ClassPath: lib/javacpp.jar,
+ lib/javacv-linux-x86.jar,
+ lib/javacv.jar,
+ .

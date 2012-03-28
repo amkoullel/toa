@@ -2,6 +2,8 @@ package systemvideo;
 
 import interfaces.IImageAcquisition;
 import interfaces.IImageAnalysis;
+import interfaces.IImagePublish;
+import interfaces.IImageReasoning;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -29,7 +31,7 @@ public class Activator extends AbstractUIPlugin {
 	
 	public IImageAcquisition createImageAcquisiton () {
 		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAcquisition")) {
-			//System.out.println(elt.getAttribute("name"));
+			System.out.println(elt.getAttribute("name"));
 			String name = elt.getAttribute("name").toLowerCase() ;
 			if (!name.equals("camera")) {
 				try {
@@ -43,10 +45,36 @@ public class Activator extends AbstractUIPlugin {
 		return null ;
 	}
 	
+	public IImageReasoning createImageReasoning () {
+		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageReasoning")) {
+			System.out.println(elt.getAttribute("name"));
+			try {
+				return (IImageReasoning) elt.createExecutableExtension("class");
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null ;
+	}
+	
+	public IImagePublish createImagePublish () {
+		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imagePublish")) {
+			System.out.println(elt.getAttribute("name"));
+			try {
+				return (IImagePublish) elt.createExecutableExtension("class");
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return null ;
+	}
+	
 	public IImageAnalysis createImageAnalysis() {
 		// TODO Auto-generated method stub
 		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAnalysis")) {
-			//System.out.println(elt.getAttribute("name"));
+			System.out.println(elt.getAttribute("name"));
 			try {
 				return (IImageAnalysis) elt.createExecutableExtension("class");
 			} catch (CoreException e) {

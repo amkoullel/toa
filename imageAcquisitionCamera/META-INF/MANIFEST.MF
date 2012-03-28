@@ -4,6 +4,11 @@ Bundle-Name: ImageAcquisitionCamera
 Bundle-SymbolicName: imageAcquisitionCamera;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: xugglerPlugin;bundle-version="1.0.0",
- systemVideo;bundle-version="1.0.0"
+Require-Bundle: systemVideo;bundle-version="1.0.0"
 Import-Package: interfaces
+Bundle-ClassPath: lib/commons-cli.jar,
+ lib/logback-classic.jar,
+ lib/logback-core.jar,
+ lib/slf4j-api.jar,
+ lib/xuggle-xuggler.jar,
+ .

@@ -2,6 +2,8 @@ package systemvideo.actions;
 
 import interfaces.IImageAcquisition;
 import interfaces.IImageAnalysis;
+import interfaces.IImagePublish;
+import interfaces.IImageReasoning;
 
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -19,10 +21,9 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
  * @see IWorkbenchWindowActionDelegate
  */
 public class SystemVideo implements IWorkbenchWindowActionDelegate {
-	private IWorkbenchWindow window;
-	
+	private IWorkbenchWindow window;	
 	private IImageAcquisition imgAcquisition ;
-	private IImageAnalysis imgAnalyse ;
+		
 	/**
 	 * The constructor.
 	 */
@@ -36,25 +37,24 @@ public class SystemVideo implements IWorkbenchWindowActionDelegate {
 	 * @see IWorkbenchWindowActionDelegate#run
 	 */
 	public void run(IAction action) {
-	/*	MessageDialog.openInformation(
-			window.getShell(),
-			"SystemVideo",
-			"Hello, Eclipse world");*/
 	this.createObjects () ;
+	System.out.println("create");
 		if (this.imgAcquisition != null)
 			this.imgAcquisition.run() ;
 		else
-			System.out.println("Erreur");
-		
-		/*String name = System.getProperty ( "os.name" );
-		System.out.println(name);*/
+			System.out.println("Erreur");		
 	}
 	
 	private void createObjects() {
 		// TODO Auto-generated method stub
-		this.imgAnalyse = systemvideo.Activator.getDefault().createImageAnalysis();
-		this.imgAcquisition = systemvideo.Activator.getDefault().createImageAcquisiton() ;
-		this.imgAcquisition.setIImageAnalysis(this.imgAnalyse);
+		this.imgAcquisition = systemvideo.Activator.getDefault().createImageAcquisiton() ;	
+		IImageAnalysis	imgAnalyse = systemvideo.Activator.getDefault().createImageAnalysis();	
+		IImageReasoning	imgReasoning = systemvideo.Activator.getDefault().createImageReasoning() ;
+		IImagePublish	imgPublish =  systemvideo.Activator.getDefault().createImagePublish() ;
+	
+		imgReasoning.addIImagePublish(imgPublish) ;
+		imgAnalyse.setIImageResoning(imgReasoning);	
+		this.imgAcquisition.setIImageAnalysis(imgAnalyse);
 	}
 
 	/**
