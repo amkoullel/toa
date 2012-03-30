@@ -1,16 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}
 \BOOKMARK [1][-]{section.2}{Architecture}{}
-\BOOKMARK [1][-]{section.3}{PagePreference}{}
-\BOOKMARK [1][-]{section.4}{ex\351cution}{}
-\BOOKMARK [2][-]{subsection.4.1}{imageAcquisitionVideo}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{imageAnalysis}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{imageReasoning}{section.4}
-\BOOKMARK [2][-]{subsection.4.4}{imagePublishBlogger}{section.4}
-\BOOKMARK [1][-]{section.5}{Points d'extension et interfaces}{}
-\BOOKMARK [2][-]{subsection.5.1}{acquistion d'image}{section.5}
-\BOOKMARK [2][-]{subsection.5.2}{analyse d'image}{section.5}
-\BOOKMARK [2][-]{subsection.5.3}{raisonnement}{section.5}
-\BOOKMARK [2][-]{subsection.5.4}{publication de post}{section.5}
-\BOOKMARK [3][-]{subsubsection.5.4.1}{Architecture globale}{subsection.5.4}
-\BOOKMARK [1][-]{section.6}{Conception}{}
-\BOOKMARK [1][-]{section.7}{}{}
+\BOOKMARK [1][-]{section.3}{biblioth\350que requise}{}
+\BOOKMARK [1][-]{section.4}{PagePreference}{}
+\BOOKMARK [1][-]{section.5}{ex\351cution}{}
+\BOOKMARK [2][-]{subsection.5.1}{imageAcquisitionVideo}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{imageAnalysis}{section.5}
+\BOOKMARK [2][-]{subsection.5.3}{imageReasoning}{section.5}
+\BOOKMARK [2][-]{subsection.5.4}{imagePublishBlogger}{section.5}
+\BOOKMARK [1][-]{section.6}{Points d'extension et interfaces}{}
+\BOOKMARK [2][-]{subsection.6.1}{acquistion d'image}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{analyse d'image}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{raisonnement}{section.6}
+\BOOKMARK [2][-]{subsection.6.4}{publication de post}{section.6}

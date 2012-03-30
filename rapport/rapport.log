@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.9)  30 MAR 2012 18:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.6)  30 MAR 2012 19:11
 entering extended mode
  %&-line parsing enabled.
 **rapport.tex
 (./rapport.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size12.clo
@@ -249,7 +255,7 @@ File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 Package color Info: Driver file: pdftex.def on input line 130.
 
 (/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+File: pdftex.def 2009/08/25 v0.04m Graphics/color for pdfTeX
 \Gread@gobject=\count87
 ))
 (/usr/share/texmf-texlive/tex/latex/soul/soul.sty
@@ -264,7 +270,7 @@ Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
 \SOUL@uldp=\dimen104
 \SOUL@ulht=\dimen105
 )
-(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+(/var/lib/texmf/tex/generic/babel/babel.sty
 Package: babel 2008/07/06 v3.8l The Babel package
 
 (/usr/share/texmf-texlive/tex/generic/babel/english.ldf
@@ -275,21 +281,12 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen106
 )
-\l@british = a dialect from \language\l@english 
-\l@UKenglish = a dialect from \language\l@english 
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 )
 (/usr/share/texmf-texlive/tex/generic/babel/frenchb.ldf
 Language: frenchb 2009/03/16 v2.3d French support from the babel system
-
-
-Package babel Warning: No hyphenation patterns were loaded for
-(babel)                the language `French'
-(babel)                I will use the patterns loaded for \language=0 instead.
-
-\l@french = a dialect from \language0
 Package babel Info: Making : an active character on input line 120.
 Package babel Info: Making ; an active character on input line 121.
 Package babel Info: Making ! an active character on input line 122.
@@ -298,6 +295,7 @@ Package babel Info: Making ? an active character on input line 123.
 \std@mcc=\count89
 \dec@mcc=\count90
 \parindentFFN=\dimen108
+
 *************************************
 * Local config file frenchb.cfg used
 *
@@ -591,7 +589,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
- (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+ (/usr/share/texmf/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
 \scratchdimen=\dimen128
@@ -645,10 +643,15 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<images/architecture.png, id=94, 738.76pt x 473.77pt>
+<images/architecture.png, id=86, 738.76pt x 473.77pt>
 File: images/architecture.png Graphic file (type png)
 
 <use images/architecture.png>
+Overfull \hbox (8.8595pt too wide) in paragraph at lines 62--63
+[]\T1/cmr/m/it/12 imageAnalysisExt \T1/cmr/m/n/12 : point d'ex-ten-sion pour le
+s plu-gins d'ana-lyse d'images; 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -656,50 +659,50 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [2 <./images/architecture.png (PNG copy)>]
-<images/preference.png, id=103, 739.76375pt x 559.08875pt>
+<images/preference.png, id=94, 739.76375pt x 559.08875pt>
 File: images/preference.png Graphic file (type png)
 
 <use images/preference.png>
-<images/fichier_video.png, id=106, 540.0175pt x 353.32pt>
+<images/fichier_video.png, id=97, 540.0175pt x 353.32pt>
 File: images/fichier_video.png Graphic file (type png)
 
 <use images/fichier_video.png> [3] [4 <./images/preference.png (PNG copy)> <./i
 mages/fichier_video.png (PNG copy)>]
-<images/figureHaar.png, id=121, 540.0175pt x 354.32375pt>
+<images/figureHaar.png, id=112, 540.0175pt x 354.32375pt>
 File: images/figureHaar.png Graphic file (type png)
 
 <use images/figureHaar.png>
 
 LaTeX Warning: Reference `fig:nombre_visages' on page 5 undefined on input line
- 104.
+ 108.
 
-<images/nombre_visages.png, id=122, 300.12125pt x 118.4425pt>
+<images/nombre_visages.png, id=113, 300.12125pt x 118.4425pt>
 File: images/nombre_visages.png Graphic file (type png)
 
 <use images/nombre_visages.png>
-<images/google.png, id=124, 273.02pt x 199.74625pt>
+<images/google.png, id=115, 273.02pt x 199.74625pt>
 File: images/google.png Graphic file (type png)
  <use images/google.png>
 [5 <./images/figureHaar.png (PNG copy)> <./images/nombre_visages.png (PNG copy)
 >]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 127.
+nput line 133.
  (./interfaces/IImageAcquisition.java
 Overfull \hbox (54.04541pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][] 
  []
 
-) (./interfaces/IImageAnalysis.java [6 <./images/google.png (PNG copy)>]
+) [6 <./images/google.png (PNG copy)>] (./interfaces/IImageAnalysis.java
 Overfull \hbox (39.94873pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
 
-) (./interfaces/IImageReasoning.java
+) (./interfaces/IImageReasoning.java [7]
 Overfull \hbox (18.80371pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
 
-) (./interfaces/IImagePublish.java) [7] [8] (./rapport.aux)
+) (./interfaces/IImagePublish.java) [8] [9] (./rapport.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -708,25 +711,24 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8355 strings out of 495061
- 112980 string characters out of 1182622
- 208277 words of memory out of 3000000
- 11267 multiletter control sequences out of 15000+50000
+ 8343 strings out of 493848
+ 112797 string characters out of 1152824
+ 201565 words of memory out of 3000000
+ 11351 multiletter control sequences out of 15000+50000
  20916 words of font info for 62 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 38i,12n,43p,661b,1750s stack positions out of 5000i,500n,10000p,200000b,50000s
- </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </
-comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </compt
-es/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </comptes/E0
-7A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </comptes/E07A946
-C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E07A946C/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </comptes/E07A946C/.texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </comptes/E07A946C/.texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </comptes/E07A946C/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecbx2074.600pk>
-Output written on rapport.pdf (8 pages, 265857 bytes).
+ 714 hyphenation exceptions out of 8191
+ 38i,12n,43p,391b,1746s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
+</usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fo
+nts/type1/public/cm-super/sfti1200.pfb>
+Output written on rapport.pdf (9 pages, 317902 bytes).
 PDF statistics:
- 504 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 243 PDF objects out of 1000 (max. 8388607)
+ 85 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
 

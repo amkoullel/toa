@@ -72,6 +72,10 @@ Les plugins suivants ont été dévéloppés et peuvent être utilisés :
 \item {\bf imagePublishBlogger} :  publie le message "Nous avons plus de deux visages" sur un google blog.
 \end{itemize}  
 
+
+\part*{Installtion}
+\section{bibliothèque requise}
+
 \part*{Tutorial}
 \section{PagePreference}
 \begin{figure}
@@ -121,7 +125,7 @@ Ce plugin permet la publication de post sur un blog google. Pour cela il demande
 \part*{Utilisation avancée}
 Comme le montre la figure \ref{fig:architecture} systemVide définit quatre points d'extensions. Pour ecrire un plugin pour systemVideo on choisit l'un de ces points d'extensions et on definit une classe qui implemente l'interface du point d'extension.
 
-Notre système est un chainage de plugin car le plugin d'acquistion d'image capture une image et la passe au plugin d'analyse qui lui analyse l'image et passe ces résultats au plugin de raisonnement qui traite les résultats et decide ou non de publier.
+Notre système est un chainage de plugin car le plugin d'acquistion d'image capture une image et la passe au plugin d'analyse qui lui analyse l'image et passe ces résultats au plugin de raisonnement qui traite les résultats et decide de publier ou non.
 
   \section{Points d'extension et interfaces} 
   \subsection{acquistion d'image}
@@ -131,35 +135,35 @@ Notre système est un chainage de plugin car le plugin d'acquistion d'image capt
   Cette méthode est appelé par le plugin centrale (systemVideo). elle lance réellement l'exécution du système.
   \subsubsection*{méthod init}
   Cette méthode est appelé pour initialiser le plugin. Elle est appelé avant la methode run et peut être utilisé pour demander des informations à l'utilisateur (chemin d'un fichier , un identifiant etc).
-
-  \subsubsection*{méthod setImageanalysis}
-  
+  \subsubsection*{méthod setIImageAnalysis}
+  Cette méthod permet de fixer le l'objet qui va analyser les images capturées.
   \subsection{analyse d'image}
  \lstinputlisting{interfaces/IImageAnalysis.java}
+  \subsubsection*{méthod analyse}
+  Cette méthode est appelé par le plugin d'acquisiton d'image et à comme paramètre l'image capturer.
+  \subsubsection*{méthod init}
+  Cette méthode est appelé une seule fois (avant toute autres méthodes) et peut permettre au plugin de s'iniatialiser.
+  \subsubsection*{méthod setIImageResoning}
+  Cette méthod permet de fixer le l'objet qui va resevoir les resultats de nos analyse.
+
   \subsection{raisonnement}
  \lstinputlisting{interfaces/IImageReasoning.java}
+  \subsubsection*{méthod reasoning}
+  Cette méthode est appelé par le plugin d'analyse d'image et à comme paramètre une liste d'objets issue de l'analyse.
+  On peut remarquer que cette liste peut être une liste de n'importe qu'elle objet java, ainsi pour pouvoir raisonner au mieu ce plugins doit connaitre qu'elle sont les type concrets de objets envoyer et dans qu'elle ordre ce qui cré une forte dependances entre le plugin d'analyse et le plugin de raisonnement.
+  \subsubsection*{méthod init}
+  Cette méthode est appelé une seule fois (avant toute autres méthodes) et peut permettre au plugin de s'iniatialiser.
+  \subsubsection*{méthod addIImagePublish}
+  Cette méthod permet d'jouter un IImagePublis (un plugin pour la publication de post  ceux connu du plugin de raisonnemt). Ainsi un même peut être publier sur différents r'éseaux sociaux.
+
   \subsection{publication de post}
   \lstinputlisting{interfaces/IImagePublish.java}
-  \subsubsection{Architecture globale}
-  \begin{enumerate}
-  \item {\bf VisonSystem} : VisonSystem est le plugin de central. Ce plugin fournit quatre points d'extensions spécifiques pour tout le processus de traitement et définit les interfaces que devront implémenter les plugins clients; A savoir {\it IImageAcuquisition}, {\it IImageAnalysis}, {\it IImageReasoning}, {\it IImagePublication}.
-  \item {\bf imageAcquisitionCamera} : plugin d'acquisition (capture) d'une image à partir d'une video. 
-  \item {\bf imageAcquisitionVideo} :  plugin d'acquisition (capture) d'une image à partir d'une webcam. \\
-    Ces deux plugins définissent chacun une extension pour le point d'extension prévu à cet effet par visionSystem. La bibliothèque utilisée ici pour la capture est la bibliothèque {\bf xuggler}. Chacun de ces plugins possèdent dans sa classe d'implémentation un objet de type IImageAnalysis qui est ue interface définissant une méthode d'analyse. Le mode d'opération de ces deux plugins est le même : capture une image , instancie un objet de type IImageAnalysis et délègue l'analyse de cette image à l'objet IImageAnalysis.
-    ...
-  \item {\bf imageAnalysis} : plugin d'analyse d'une image. L'analyse de l'image quand à elle a été faite avec le bibliothèque {\bf OpenCv}. Ce plugin définit lui aussi un obejt de IImageReasoning. Ce plugin récoit l'image à traiter de l'un des deux plugins précédents. L'analyse de l'image est effectué puis l'image est aisni délégué au plugin imageReasonig qui lui se charge du traitement final avant la publication. 
-    ...
-  \item {\bf imageReasoning} : Ce plugin possède en son sein une liste d'image à publier dans laquelle il range au fur et à mesure les images qui devront être publiées. ...
-  \item {\bf imagePublication} : Plugin de publication d'image, recoit les images à publier du plugin imageReasoning puis procède à la publication de celle ci.
-    
-    Comme on peut le constater les différents plugins présentés s'appuient sur des bibliothèques tierces. De ce fait nous créons des plugins qui regroupent ces bibliothèques qui deviennent ainsi des "repository" de bibliothèques tierces. Ceci est une approche parmi tant d'autre. l'avantage de cette approche est qu'elle évite une duplication des archives des bibliothèques dans tous les plugins utilisant ces bibliothèques. Si un plugin utilise une librairie, il suffira juste d'établir une dépendance avec le plugin (repository) contenant cette librairie. Ceci nous emmène donc à créer les deux plugins suivants : 
-  \item {\bf javacvPlugin} : repository de plugin pour javaCv  
-  \item {\bf xugglerPlugin} : repository de plugin pour xuggler 
-
-  \end{enumerate}
-
-
-  \section{Conception}
-  Le processus de traitement de l'image suis une séquence bien définie. Le
-  \section{}
+  \subsubsection*{méthod publish}
+  Cette méthode est appelé par le plugin de raisonnement. Elle prend en paramètre l'image à publier, le titre du post et le contenu du post.
+  \subsubsection*{méthod init}
+  Cette méthode est appelé une seule fois (avant toute autres méthodes) et peut permettre au plugin de s'iniatialiser.
+  \subsubsection*{méthod setProxyHost}
+  Cette méthod permet de prendre en compte l'adresse du proxy. Elle est appelé une seule fois et avant la méthod publish
+  \subsubsection*{méthod setProxyPort}
+  Cette méthod permet de prendre en compte le port du proxy. Elle est appelé une seule fois et avant la méthod publish
 \end{document}
