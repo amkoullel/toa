@@ -5,10 +5,15 @@ import interfaces.IImageAnalysis;
 import interfaces.IImagePublish;
 import interfaces.IImageReasoning;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
+
+import systemvideo.Activator;
 //import org.eclipse.jface.dialogs.MessageDialog;
 
 
@@ -37,24 +42,25 @@ public class SystemVideo implements IWorkbenchWindowActionDelegate {
 	 * @see IWorkbenchWindowActionDelegate#run
 	 */
 	public void run(IAction action) {
-	this.createObjects () ;
-	System.out.println("create");
-		if (this.imgAcquisition != null)
+		try {
+			this.createObjects () ;
 			this.imgAcquisition.run() ;
-		else
-			System.out.println("Erreur");		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
-	private void createObjects() {
-		// TODO Auto-generated method stub
-		this.imgAcquisition = systemvideo.Activator.getDefault().createImageAcquisiton() ;	
-		IImageAnalysis	imgAnalyse = systemvideo.Activator.getDefault().createImageAnalysis();	
-		IImageReasoning	imgReasoning = systemvideo.Activator.getDefault().createImageReasoning() ;
-		IImagePublish	imgPublish =  systemvideo.Activator.getDefault().createImagePublish() ;
+	/**
+	 * Crée les différents objets qui implementent les interfaces des points d'extension  
+	 * @throws Exception 
+	 */
 	
-		imgReasoning.addIImagePublish(imgPublish) ;
-		imgAnalyse.setIImageResoning(imgReasoning);	
-		this.imgAcquisition.setIImageAnalysis(imgAnalyse);
+	private void createObjects() throws Exception {
+		// TODO Auto-generated method stub
+		
+		imgAcquisition = Activator.getDefault().createObjects () ;
+		imgAcquisition.init();
 	}
 
 	/**

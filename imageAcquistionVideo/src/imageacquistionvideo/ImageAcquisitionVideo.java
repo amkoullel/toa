@@ -1,6 +1,11 @@
 package imageacquistionvideo;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.swing.filechooser.FileFilter ;
+import javax.swing.filechooser.FileNameExtensionFilter ;
+
+import javax.swing.JFileChooser;
 
 import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.IPacket;
@@ -24,7 +29,7 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 	public ImageAcquisitionVideo() {
 		// TODO Auto-generated constructor stub
 		//file_name = "/home/algassimou/test1.flv" ;
-		file_name = "/comptes/E07A946C/test.avi" ;
+		//file_name = "/comptes/E07A946C/test.avi" ;
 		nb_frame = 10 ;
 	}
 	
@@ -80,17 +85,11 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		IPacket packet = IPacket.make() ;
 		while (container.readNextPacket(packet) >= 0)
 		{		
-			System.out.println ("analyse") ;
 			if (packet.getStreamIndex() == videoStreamId) {
 				IVideoPicture picture = IVideoPicture.make(videoCoder.getPixelType() , 
 						videoCoder.getWidth() , videoCoder.getHeight()) ;
 			
-				if (frame != nb_frame) {
-					frame++ ;
-					continue ;
-				} 
-				else
-					frame = 1 ;
+				
 				
 				int offset = 0 ;
 				
@@ -102,6 +101,14 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 					offset += bytesDecoded ;
 					if (picture.isComplete())
 					{
+
+						if (frame != nb_frame) {
+							frame++ ;
+							break ;
+						} 
+						else
+							frame = 1 ;
+					
 						IVideoPicture newPicture = null ;
 						if (picture.getPixelType() == IPixelFormat.Type.RGB24)
 						{
@@ -127,7 +134,7 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		}
 		
 		// terminer on envoie null
-		this.imgAnalyse.analyse(null);
+		//this.imgAnalyse.analyse(null);
 	}
 
 	@Override
@@ -135,6 +142,21 @@ public class ImageAcquisitionVideo implements IImageAcquisition {
 		// TODO Auto-generated method stub
 		this.imgAnalyse = analyse ;
 		//this.imgAnalyse = new TestAnalyse() ;
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		final JFileChooser fc = new JFileChooser();
+		FileFilter filter = new FileNameExtensionFilter("*.avi *flv *mp4", "avi" , "flv" , "mp4");
+		fc.setFileFilter(filter) ;		
+		int ret = fc.showOpenDialog(null);
+		if (ret == JFileChooser.APPROVE_OPTION) {
+			File file = fc.getSelectedFile();
+			file_name = file.getAbsolutePath() ;
+		}
+		
+		imgAnalyse.init() ;
 	}
 
 }

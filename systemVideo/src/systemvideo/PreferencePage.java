@@ -1,31 +1,41 @@
 package systemvideo;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
+import org.eclipse.jface.preference.FieldEditor;
+import org.eclipse.jface.preference.FileFieldEditor;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 
 
-public class PreferencePage extends org.eclipse.jface.preference.PreferencePage
+public class PreferencePage extends org.eclipse.jface.preference.FieldEditorPreferencePage
 		implements IWorkbenchPreferencePage {
 
 	public PreferencePage() {
 		// TODO Auto-generated constructor stub
+		super(GRID);
+	}
+	
+	/**
+	 * 	initialise la page de preference
+	 */
+	@Override
+	public void init(IWorkbench workbench) {	
+		IPreferenceStore store =
+			Activator.getDefault().getStore();
+		setPreferenceStore(store);
+	}
+	
+	public void add (FieldEditor f){
+		addField(f) ;
 	}
 
-	@Override
-	protected Control createContents(Composite parent) {
-		// TODO Auto-generated method stub
-		 Composite composite = new Composite(parent, SWT.NONE);
-         org.eclipse.swt.graphics.Color jaune = parent.getDisplay().getSystemColor(SWT.COLOR_YELLOW);
-         composite.setBackground(jaune);
-         return composite;
-	}
 
 	@Override
-	public void init(IWorkbench workbench) {
+	protected void createFieldEditors() {
 		// TODO Auto-generated method stub
+		Activator.getDefault().createFieldEditors(this, getFieldEditorParent()) ;	
 	}
 
 }

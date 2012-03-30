@@ -1,5 +1,10 @@
 package systemvideo;
 
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import interfaces.IImageAcquisition;
 import interfaces.IImageAnalysis;
 import interfaces.IImagePublish;
@@ -8,7 +13,16 @@ import interfaces.IImageReasoning;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.RegistryFactory;
+import org.eclipse.jface.preference.FieldEditor;
+import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.FileFieldEditor;
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.internal.IPreferenceConstants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -23,66 +37,19 @@ public class Activator extends AbstractUIPlugin {
 	// The shared instance
 	private static Activator plugin;
 	
+	private Map<String , IConfigurationElement> mesConfiguration ; 
+	private boolean setPreference  ; //avons nous choisit des preferences 
+	
 	/**
 	 * The constructor
 	 */
 	public Activator() {
+		mesConfiguration = new HashMap<String , IConfigurationElement> () ;
+		setPreference = false ;
 	}
 	
-	public IImageAcquisition createImageAcquisiton () {
-		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAcquisition")) {
-			System.out.println(elt.getAttribute("name"));
-			String name = elt.getAttribute("name").toLowerCase() ;
-			if (!name.equals("camera")) {
-				try {
-					return (IImageAcquisition) elt.createExecutableExtension("class");
-				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-		return null ;
-	}
-	
-	public IImageReasoning createImageReasoning () {
-		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageReasoning")) {
-			System.out.println(elt.getAttribute("name"));
-			try {
-				return (IImageReasoning) elt.createExecutableExtension("class");
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null ;
-	}
-	
-	public IImagePublish createImagePublish () {
-		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imagePublish")) {
-			System.out.println(elt.getAttribute("name"));
-			try {
-				return (IImagePublish) elt.createExecutableExtension("class");
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null ;
-	}
-	
-	public IImageAnalysis createImageAnalysis() {
-		// TODO Auto-generated method stub
-		for (IConfigurationElement elt : RegistryFactory.getRegistry().getConfigurationElementsFor("systemVideo.imageAnalysis")) {
-			System.out.println(elt.getAttribute("name"));
-			try {
-				return (IImageAnalysis) elt.createExecutableExtension("class");
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return null;
+	public IConfigurationElement getConfigurationElement (String s) {
+		return mesConfiguration.get(s);
 	}
 
 	/*
@@ -122,4 +89,100 @@ public class Activator extends AbstractUIPlugin {
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
 	}
+
+	public void createFieldEditorsAcquisition(String extension , String label , PreferencePage p,  Composite fieldEditorParent) {
+		
+		IConfigurationElement [] elts = RegistryFactory.getRegistry().getConfigurationElementsFor(extension) ;
+		String [][] namesValues = new String[elts.length][2] ;
+		int cpt = 0 ;
+		for (IConfigurationElement elt : elts) {
+			String [] tab = new String [2] ;
+			tab[0] =  elt.getAttribute("name") ;
+			tab[1] =  elt.getAttribute("class") ;
+			namesValues[cpt++] = tab ;
+			mesConfiguration.put(tab[1],elt) ;
+			System.out.println(tab[1]);
+		}
+		
+		FieldEditor f =	new RadioGroupFieldEditor (extension , label , namesValues.length ,
+									 namesValues , fieldEditorParent , true);
+		p.add(f);
+	}
+	
+	
+	
+	public void createFieldEditors(PreferencePage p, Composite fieldEditorParent) {
+		// TODO Auto-generated method stub
+		createFieldEditorsAcquisition("systemVideo.imageAcquisition", "Plugin acquisition d'images" , p ,fieldEditorParent );
+		FieldEditor f =	new IntegerFieldEditor("Frame", "Une capture toutes les ... images", fieldEditorParent) ;
+		p.add(f);
+		
+		
+		createFieldEditorsAcquisition("systemVideo.imageAnalysis", "Plugin analyse d'images" , p ,fieldEditorParent );
+		createFieldEditorsAcquisition("systemVideo.imageReasoning", "Plugin raisonnement" , p ,fieldEditorParent );
+		createFieldEditorsAcquisition("systemVideo.imagePublish", "Plugin de publication" , p ,fieldEditorParent );
+		
+		f =	new StringFieldEditor("ProxyHost", "adresse du proxy ", fieldEditorParent) ;
+		p.add(f);
+			
+		f =	new IntegerFieldEditor("ProxyPort", "port du proxy ", fieldEditorParent) ;
+		p.add(f);
+	}
+	
+
+	public IPreferenceStore getStore () {
+		if (!setPreference)
+			setPreference = true ;
+		return getPreferenceStore();	
+	}
+	
+	private String getString (IPreferenceStore store , String s) {
+		if (setPreference)
+			return store.getString(s) ;
+		else
+			return store.getDefaultString(s);
+		
+	}
+	
+	public IImageAcquisition createObjects() throws Exception {
+		// TODO Auto-generated method stub
+		//Activator.getDefault().createObject () ;
+		
+		System.out.println ("avant") ;
+		IPreferenceStore store = Activator.getDefault().getPreferenceStore() ;
+		
+		String s = getString(store , "systemVideo.imageAcquisition") ;
+		System.out.println (s) ;
+		IConfigurationElement elt =  Activator.getDefault().getConfigurationElement(s) ;
+		IImageAcquisition imgAcquisition = (IImageAcquisition) elt.createExecutableExtension("class");
+		
+		s = getString(store , "systemVideo.imageAnalysis") ;
+		System.out.println (s) ;
+		IImageAnalysis imgAnalyse = (IImageAnalysis) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
+		
+		s = getString(store , "systemVideo.imageReasoning") ;
+		System.out.println (s) ;
+		IImageReasoning imgReasoning = (IImageReasoning) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
+			
+		s = getString(store , "systemVideo.imagePublish") ;
+		System.out.println (s) ;
+		IImagePublish imgPublish = (IImagePublish) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
+		
+		
+		s = getString(store , "ProxyHost") ;
+		System.out.println (s) ;
+		
+		if (!s.equals("")) {
+			imgPublish.setProxyHost(s);
+			s = getString(store , "ProxyPort") ;
+			imgPublish.setProxyPort(s) ;
+		}
+		
+		imgReasoning.addIImagePublish(imgPublish);
+		imgAnalyse.setIImageResoning(imgReasoning);
+		imgAcquisition.setIImageAnalysis(imgAnalyse);
+		
+		return imgAcquisition ;
+	}
+	
 }

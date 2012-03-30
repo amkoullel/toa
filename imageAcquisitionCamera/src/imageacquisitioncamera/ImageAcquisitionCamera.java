@@ -215,4 +215,10 @@ public class ImageAcquisitionCamera implements IImageAcquisition {
 		this.imgAnalyse = analyse ;
 	}
 
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

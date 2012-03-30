@@ -52,4 +52,10 @@ public class TestAnalyse implements IImageAnalysis {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -5,7 +5,7 @@
          point="systemVideo.imageAcquisition">
       <imageAcquisition
             class="imageacquistionvideo.ImageAcquisitionVideo"
-            name="video">
+            name="videoAcquisition">
       </imageAcquisition>
    </extension>
 

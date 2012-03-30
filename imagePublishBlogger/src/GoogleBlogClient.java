@@ -13,4 +13,22 @@ public class GoogleBlogClient implements IImagePublish {
 		System.out.println (title + content);
 	}
 
+	@Override
+	public void setProxyHost(String proxyHost) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setProxyPort(String proxyPort) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

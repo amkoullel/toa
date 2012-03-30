@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ImagePublishFacebook
+Bundle-SymbolicName: imagePublishFacebook;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: systemVideo;bundle-version="1.0.0"
+Import-Package: interfaces
+Bundle-ClassPath: lib/restfb-1.6.9.jar,
+ .
