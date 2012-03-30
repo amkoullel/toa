@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.6)  30 MAR 2012 19:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.4.6)  30 MAR 2012 23:51
 entering extended mode
  %&-line parsing enabled.
 **rapport.tex
@@ -666,28 +666,32 @@ File: images/preference.png Graphic file (type png)
 <images/fichier_video.png, id=97, 540.0175pt x 353.32pt>
 File: images/fichier_video.png Graphic file (type png)
 
-<use images/fichier_video.png> [3] [4 <./images/preference.png (PNG copy)> <./i
-mages/fichier_video.png (PNG copy)>]
-<images/figureHaar.png, id=112, 540.0175pt x 354.32375pt>
+<use images/fichier_video.png> [3]
+<images/figureHaar.png, id=106, 540.0175pt x 354.32375pt>
 File: images/figureHaar.png Graphic file (type png)
 
 <use images/figureHaar.png>
 
-LaTeX Warning: Reference `fig:nombre_visages' on page 5 undefined on input line
- 108.
+LaTeX Warning: Reference `fig:nombre_visages' on page 4 undefined on input line
+ 113.
 
-<images/nombre_visages.png, id=113, 300.12125pt x 118.4425pt>
+<images/nombre_visages.png, id=107, 300.12125pt x 118.4425pt>
 File: images/nombre_visages.png Graphic file (type png)
 
-<use images/nombre_visages.png>
-<images/google.png, id=115, 273.02pt x 199.74625pt>
+<use images/nombre_visages.png> [4 <./images/preference.png (PNG copy)>]
+[5 <./images/fichier_video.png (PNG copy)> <./images/figureHaar.png (PNG copy)>
+ <./images/nombre_visages.png (PNG copy)>]
+<images/google.png, id=121, 273.02pt x 199.74625pt>
 File: images/google.png Graphic file (type png)
  <use images/google.png>
-[5 <./images/figureHaar.png (PNG copy)> <./images/nombre_visages.png (PNG copy)
->]
+Overfull \hbox (1.83202pt too wide) in paragraph at lines 133--134
+[]\T1/cmr/m/n/12 Notre sys-tème est un chaî-nage de plu-gin car le plu-gin d'ac
+-qui-si-tion d'image
+ []
+
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 133.
- (./interfaces/IImageAcquisition.java
+nput line 138.
+(./interfaces/IImageAcquisition.java
 Overfull \hbox (54.04541pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][] 
  []
@@ -697,7 +701,7 @@ Overfull \hbox (39.94873pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
 
-) (./interfaces/IImageReasoning.java [7]
+) [7] (./interfaces/IImageReasoning.java
 Overfull \hbox (18.80371pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
@@ -713,11 +717,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  8343 strings out of 493848
  112797 string characters out of 1152824
- 201565 words of memory out of 3000000
+ 202565 words of memory out of 3000000
  11351 multiletter control sequences out of 15000+50000
  20916 words of font info for 62 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,12n,43p,391b,1746s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,11n,43p,395b,960s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
 fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/c
 m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb
@@ -726,7 +730,7 @@ onts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm
 -super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb>
 </usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fo
 nts/type1/public/cm-super/sfti1200.pfb>
-Output written on rapport.pdf (9 pages, 317902 bytes).
+Output written on rapport.pdf (9 pages, 318294 bytes).
 PDF statistics:
  243 PDF objects out of 1000 (max. 8388607)
  85 named destinations out of 1000 (max. 500000)

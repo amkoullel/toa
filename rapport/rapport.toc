@@ -4,12 +4,12 @@
 \contentsline {section}{\numberline {3}biblioth\IeC {\`e}que requise}{3}{section.3}
 \contentsline {section}{\numberline {4}PagePreference}{3}{section.4}
 \contentsline {section}{\numberline {5}ex\IeC {\'e}cution}{3}{section.5}
-\contentsline {subsection}{\numberline {5.1}imageAcquisitionVideo}{3}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}imageAnalysis}{5}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}imageReasoning}{5}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}imagePublishBlogger}{5}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.1}imageAcquisitionVideo}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}imageAnalysis}{4}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}imageReasoning}{4}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}imagePublishBlogger}{6}{subsection.5.4}
 \contentsline {section}{\numberline {6}Points d'extension et interfaces}{6}{section.6}
-\contentsline {subsection}{\numberline {6.1}acquistion d'image}{6}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.1}acquisition d'image}{6}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}analyse d'image}{7}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}raisonnement}{7}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.3}raisonnement}{8}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}publication de post}{8}{subsection.6.4}
