@@ -62,8 +62,10 @@ public class GoogleBlogClient implements IImagePublish {
 	@Override
 	public void setProxyPort(String proxyPort) {
 		// TODO Auto-generated method stub
-		System.setProperty("https.proxyPort", proxyPort);
-		System.setProperty("http.proxyPort", proxyPort);
+		if (!proxyPort.equals("0")){
+			System.setProperty("https.proxyPort", proxyPort);
+			System.setProperty("http.proxyPort", proxyPort);
+		}
 	}
 	
 	private Entry createPost(String title, String content , Boolean isDraft)

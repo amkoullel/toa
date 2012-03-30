@@ -1,10 +1,17 @@
 \select@language {french}
-\contentsline {section}{\numberline {1}Pr\IeC {\'e}sentation g\IeC {\'e}n\IeC {\'e}rale}{1}{section.1}
-\contentsline {section}{\numberline {2}Documentation}{2}{section.2}
-\contentsline {subsection}{\numberline {2.1}Mode d'utilisation}{3}{subsection.2.1}
-\contentsline {subsubsection}{\numberline {2.1.1}Illustration}{3}{subsubsection.2.1.1}
-\contentsline {subsection}{\numberline {2.2}Utilisation avanc\IeC {\'e}e}{3}{subsection.2.2}
-\contentsline {subsubsection}{\numberline {2.2.1}Points d'extension et interfaces}{3}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}Architecture globale}{4}{subsubsection.2.2.2}
-\contentsline {section}{\numberline {3}Conception}{5}{section.3}
-\contentsline {section}{\numberline {4}}{5}{section.4}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Architecture}{2}{section.2}
+\contentsline {section}{\numberline {3}PagePreference}{3}{section.3}
+\contentsline {section}{\numberline {4}ex\IeC {\'e}cution}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}imageAcquisitionVideo}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}imageAnalysis}{5}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}imageReasoning}{5}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}imagePublishBlogger}{5}{subsection.4.4}
+\contentsline {section}{\numberline {5}Points d'extension et interfaces}{6}{section.5}
+\contentsline {subsection}{\numberline {5.1}acquistion d'image}{6}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}analyse d'image}{6}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}raisonnement}{7}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}publication de post}{7}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}Architecture globale}{7}{subsubsection.5.4.1}
+\contentsline {section}{\numberline {6}Conception}{8}{section.6}
+\contentsline {section}{\numberline {7}}{8}{section.7}

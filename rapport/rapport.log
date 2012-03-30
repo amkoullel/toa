@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.9)  30 MAR 2012 15:07
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2011.6.9)  30 MAR 2012 18:14
 entering extended mode
  %&-line parsing enabled.
 **rapport.tex
@@ -570,25 +570,28 @@ Package: listings 2007/02/22 1.4 (Carsten Heinz)
 \f@ncyO@erf=\skip54
 \f@ncyO@olf=\skip55
 \f@ncyO@orf=\skip56
-) (./rapport.aux)
+) (./rapport.aux
+
+LaTeX Warning: Label `fig:haar' multiply defined.
+
+)
 \openout1 = `rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count119
 \scratchdimen=\dimen128
@@ -601,10 +604,10 @@ LaTeX Font Info:    ... okay on input line 38.
 \MPnumerator=\count123
 \everyMPtoPDFconversion=\toks32
 )
-LaTeX Info: Redefining \degres on input line 38.
-LaTeX Info: Redefining \dots on input line 38.
-LaTeX Info: Redefining \up on input line 38.
-Package hyperref Info: Link coloring ON on input line 38.
+LaTeX Info: Redefining \degres on input line 37.
+LaTeX Info: Redefining \dots on input line 37.
+LaTeX Info: Redefining \up on input line 37.
+Package hyperref Info: Link coloring ON on input line 37.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -613,8 +616,8 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count124
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \ref on input line 37.
+LaTeX Info: Redefining \pageref on input line 37.
  (./rapport.out)
 (./rapport.out)
 \@outlinefile=\write3
@@ -622,16 +625,16 @@ LaTeX Info: Redefining \pageref on input line 38.
 
 \AtBeginShipoutBox=\box31
 \c@lstlisting=\count125
-LaTeX Font Info:    Try loading font information for U+lasy on input line 41.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 39.
  (/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 41.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 41.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -639,62 +642,91 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 \tf@toc=\write4
 \openout4 = `rapport.toc'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 46.
-
-(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<images/architecture.png, id=94, 738.76pt x 473.77pt>
+File: images/architecture.png Graphic file (type png)
+
+<use images/architecture.png>
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
-Overfull \hbox (97.51678pt too wide) in paragraph at lines 95--96
+[2 <./images/architecture.png (PNG copy)>]
+<images/preference.png, id=103, 739.76375pt x 559.08875pt>
+File: images/preference.png Graphic file (type png)
+
+<use images/preference.png>
+<images/fichier_video.png, id=106, 540.0175pt x 353.32pt>
+File: images/fichier_video.png Graphic file (type png)
+
+<use images/fichier_video.png> [3] [4 <./images/preference.png (PNG copy)> <./i
+mages/fichier_video.png (PNG copy)>]
+<images/figureHaar.png, id=121, 540.0175pt x 354.32375pt>
+File: images/figureHaar.png Graphic file (type png)
+
+<use images/figureHaar.png>
+
+LaTeX Warning: Reference `fig:nombre_visages' on page 5 undefined on input line
+ 104.
+
+<images/nombre_visages.png, id=122, 300.12125pt x 118.4425pt>
+File: images/nombre_visages.png Graphic file (type png)
+
+<use images/nombre_visages.png>
+<images/google.png, id=124, 273.02pt x 199.74625pt>
+File: images/google.png Graphic file (type png)
+ <use images/google.png>
+[5 <./images/figureHaar.png (PNG copy)> <./images/nombre_visages.png (PNG copy)
+>]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 127.
+ (./interfaces/IImageAcquisition.java
+Overfull \hbox (54.04541pt too wide) in paragraph at lines 6--7
 [][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (69.32343pt too wide) in paragraph at lines 100--101
+) (./interfaces/IImageAnalysis.java [6 <./images/google.png (PNG copy)>]
+Overfull \hbox (39.94873pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
 
-
-Overfull \hbox (76.37177pt too wide) in paragraph at lines 106--107
+) (./interfaces/IImageReasoning.java
+Overfull \hbox (18.80371pt too wide) in paragraph at lines 8--9
 [][][][][][][][][][][][][][][] 
  []
 
+) (./interfaces/IImagePublish.java) [7] [8] (./rapport.aux)
 
-Overfull \hbox (19.98505pt too wide) in paragraph at lines 111--112
-[][][][][][][][][][][][][][][][][][][][][] 
- []
+LaTeX Warning: There were undefined references.
 
-[3] [4] [5] (./rapport.aux) ) 
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 8262 strings out of 495061
- 111424 string characters out of 1182622
- 197277 words of memory out of 3000000
- 11244 multiletter control sequences out of 15000+50000
- 18695 words of font info for 59 fonts, out of 3000000 for 9000
+ 8355 strings out of 495061
+ 112980 string characters out of 1182622
+ 208277 words of memory out of 3000000
+ 11267 multiletter control sequences out of 15000+50000
+ 20916 words of font info for 62 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 38i,11n,43p,657b,1081s stack positions out of 5000i,500n,10000p,200000b,50000s
- </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jkn
-appen/ec/ecbx1440.600pk> </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen
-/ec/ecti1200.600pk> </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/e
-crm1200.600pk> </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx12
-00.600pk> </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.60
-0pk> </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> 
-</comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk></usr/
-share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on rapport.pdf (5 pages, 107358 bytes).
+ 38i,12n,43p,661b,1750s stack positions out of 5000i,500n,10000p,200000b,50000s
+ </comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </
+comptes/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </compt
+es/E07A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </comptes/E0
+7A946C/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </comptes/E07A946
+C/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </comptes/E07A946C/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </comptes/E07A946C/.texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </comptes/E07A946C/.texmf-var/fo
+nts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </comptes/E07A946C/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecbx2074.600pk>
+Output written on rapport.pdf (8 pages, 265857 bytes).
 PDF statistics:
- 347 PDF objects out of 1000 (max. 8388607)
- 35 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 83 named destinations out of 1000 (max. 500000)
+ 159 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,7 +1,5 @@
 package systemvideo;
 
-import java.awt.List;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,19 +8,16 @@ import interfaces.IImageAnalysis;
 import interfaces.IImagePublish;
 import interfaces.IImageReasoning;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.RegistryFactory;
 import org.eclipse.jface.preference.FieldEditor;
-import org.eclipse.jface.preference.FieldEditorPreferencePage;
-import org.eclipse.jface.preference.FileFieldEditor;
+
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.internal.IPreferenceConstants;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -144,33 +139,32 @@ public class Activator extends AbstractUIPlugin {
 		
 	}
 	
+	/**
+	 * creation des differents objets
+	 * @return return le plugin d'image d'acquisiton
+	 * @throws Exception
+	 */
+	
 	public IImageAcquisition createObjects() throws Exception {
 		// TODO Auto-generated method stub
-		//Activator.getDefault().createObject () ;
-		
-		System.out.println ("avant") ;
+
 		IPreferenceStore store = Activator.getDefault().getPreferenceStore() ;
 		
 		String s = getString(store , "systemVideo.imageAcquisition") ;
-		System.out.println (s) ;
 		IConfigurationElement elt =  Activator.getDefault().getConfigurationElement(s) ;
 		IImageAcquisition imgAcquisition = (IImageAcquisition) elt.createExecutableExtension("class");
 		
 		s = getString(store , "systemVideo.imageAnalysis") ;
-		System.out.println (s) ;
 		IImageAnalysis imgAnalyse = (IImageAnalysis) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
 		
 		s = getString(store , "systemVideo.imageReasoning") ;
-		System.out.println (s) ;
 		IImageReasoning imgReasoning = (IImageReasoning) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
 			
 		s = getString(store , "systemVideo.imagePublish") ;
-		System.out.println (s) ;
 		IImagePublish imgPublish = (IImagePublish) Activator.getDefault().getConfigurationElement(s).createExecutableExtension("class");
 		
 		
 		s = getString(store , "ProxyHost") ;
-		System.out.println (s) ;
 		
 		if (!s.equals("")) {
 			imgPublish.setProxyHost(s);

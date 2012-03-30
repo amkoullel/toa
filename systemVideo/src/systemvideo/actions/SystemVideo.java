@@ -1,16 +1,7 @@
 package systemvideo.actions;
 
-import javax.swing.JOptionPane;
-
 import interfaces.IImageAcquisition;
-import interfaces.IImageAnalysis;
-import interfaces.IImagePublish;
-import interfaces.IImageReasoning;
-
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.action.IAction;
-import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
@@ -59,8 +50,7 @@ public class SystemVideo implements IWorkbenchWindowActionDelegate {
 	 */
 	
 	private void createObjects() throws Exception {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 		imgAcquisition = Activator.getDefault().createObjects () ;
 		imgAcquisition.init();
 	}
