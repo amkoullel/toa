@@ -107,7 +107,7 @@ public class ImageAnalysis implements IImageAnalysis {
 			file_templates = file.getAbsolutePath() ;
 		}
 		System.out.println(file_templates) ;
-		file_templates = "/home/algassimou/logiciel/OpenCV-2.3.1/data/haarcascades/haarcascade_frontalface_alt.xml" ;
+		//file_templates = "/home/algassimou/logiciel/OpenCV-2.3.1/data/haarcascades/haarcascade_frontalface_alt.xml" ;
 		
 	      // String file_templates = "/comptes/E07A946C/logiciel/OpenCV-2.3.1/data/haarcascades/haarcascade_frontalface_alt.xml" ;
 	      

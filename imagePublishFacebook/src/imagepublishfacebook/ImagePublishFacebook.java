@@ -1,5 +1,6 @@
 package imagepublishfacebook;
 
+import javax.swing.JOptionPane;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.Parameter;
@@ -10,6 +11,7 @@ import interfaces.IImagePublish ;
 public class ImagePublishFacebook implements IImagePublish {
 	private String MY_ACCESS_TOKEN = "AAAFrJGaK4W4BAD4fIV5J2l4JPEFBc1aiBWmZB6ZCLIpH1E2OHKOsvJsZBenzRlmBJMBn9qSIytWpdPVu9ZAYGDyN12ystIh60t7nUr69YI6AxUZBS0a1W" ;
 	private FacebookClient facebookClient ;
+	JOptionPane jop = new JOptionPane() ; 
 	
 	public ImagePublishFacebook() {
 		facebookClient = new DefaultFacebookClient(MY_ACCESS_TOKEN);
@@ -52,8 +54,12 @@ public class ImagePublishFacebook implements IImagePublish {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
-		
-		MY_ACCESS_TOKEN = "AAAFrJGaK4W4BAD4fIV5J2l4JPEFBc1aiBWmZB6ZCLIpH1E2OHKOsvJsZBenzRlmBJMBn9qSIytWpdPVu9ZAYGDyN12ystIh60t7nUr69YI6AxUZBS0a1W" ;
+		    
+       MY_ACCESS_TOKEN = JOptionPane.showInputDialog(null, "Votre token access", "Facebook", JOptionPane.QUESTION_MESSAGE) ;
+		if (MY_ACCESS_TOKEN == null ||MY_ACCESS_TOKEN.equals(""))
+			throw new RuntimeException("Mauvais acces token");
+       System.out.println (MY_ACCESS_TOKEN);
+       MY_ACCESS_TOKEN = "AAAFrJGaK4W4BAD4fIV5J2l4JPEFBc1aiBWmZB6ZCLIpH1E2OHKOsvJsZBenzRlmBJMBn9qSIytWpdPVu9ZAYGDyN12ystIh60t7nUr69YI6AxUZBS0a1W" ;
 	}
 
 }
