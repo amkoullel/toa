@@ -23,7 +23,7 @@ public class GoogleBlogClient implements IImagePublish {
 	private final String FEED_URI_BASE = "http://www.blogger.com/feeds" ;
 	private final String POSTS_FEED_URI_SUFFIX = "/posts/default" ;
 	private String feedUri;
-	private String token;
+	private String author;
 	private BloggerService service ;
 
 	public GoogleBlogClient() {
@@ -72,6 +72,7 @@ public class GoogleBlogClient implements IImagePublish {
 		    Entry myEntry = new Entry();
 		    myEntry.setTitle(new PlainTextConstruct(title));
 		    myEntry.setContent(new PlainTextConstruct(content));
+		    
 		    Person author = new Person(userName , null, userName);
 		    myEntry.getAuthors().add(author);
 		    myEntry.setDraft(isDraft);
@@ -109,25 +110,28 @@ public class GoogleBlogClient implements IImagePublish {
 	public void init() {
 		// TODO Auto-generated method stub
 	    JTextField utilisateur = new JTextField();
+	    JTextField auteur = new JTextField();
 	    JPasswordField passe = new JPasswordField();
+	    
 	    int s = JOptionPane.showOptionDialog(null, 
-	      new Object[] {"Votre nom :", utilisateur, "Mot de passe :", passe},
-	      "Connexion " ,
+	      new Object[] {
+	    		"Votre nom :", utilisateur,
+	    		"Mot de passe :", passe, 
+	    		"Nom pour les post :", auteur},
+	      "Connexion google blog" ,
 	      JOptionPane.OK_CANCEL_OPTION,
 	      JOptionPane.QUESTION_MESSAGE, null, null, null); 
 	    
 	    if (s == JOptionPane.OK_OPTION) {
 	    	userName = utilisateur.getText() ;
+	    	author = auteur.getText() ;
 	    	userPassword = passe.getText() ;
 	    	System.out.println(userName + userPassword) ;
 	    }
 	    else
 	    	throw new RuntimeException("Pas d'info de connexion");
 		
-	/*	userName= "amkoullel11@gmail.com" ;
-		userPassword = "centdixneuf" ;*/
-		
-	    service=new BloggerService("f");
+	    service=new BloggerService(author);
 	    // Authenticate using ClientLogin
 	    try {
 			service.setUserCredentials(userName, userPassword);

@@ -3,69 +3,43 @@
 \usepackage{color,soul}
 \usepackage[english, francais]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor, graphicx}    % pour inclusion d'image
+\usepackage{graphicx}    % pour inclusion d'image
 \usepackage[colorlinks=true]{hyperref}
 \usepackage{setspace}
 \usepackage{makeidx}
 \usepackage{latexsym}
 \usepackage{amssymb}
 \usepackage{amsmath}
-\usepackage{colortbl}
 \usepackage{enumitem}
-\usepackage{xcolor}
 \usepackage{listings}
 
 \usepackage{fancyhdr}
-\lhead{Module S2IA030 Techniques à Objets Avancés}
+\lhead{Techniques à Objets Avancés}
 \rhead{M1 ALMA }
 \lfoot{Université de Nantes}
 \rfoot{2011-2012 }
 \renewcommand{\footrulewidth}{1px}
 \pagestyle{fancy}
 
+%% \lstset{
+%% basicstyle=\ttfamily\small, %
+%% identifierstyle=\color{colIdentifier}, %
+%% keywordstyle=\color{colKeys}, %
+%% stringstyle=\color{colString}, %
+%% commentstyle=\color{colComments}
+%% language=java
 
-\definecolor{colKeys}{rgb}{0,0,1}
-\definecolor{colIdentifier}{rgb}{0,0,0}
-\definecolor{colComments}{rgb}{0,0.5,1}
-\definecolor{colString}{rgb}{0.6,0.1,0.1}
+%% }*/
 
-\lstset{
-basicstyle=\ttfamily\small, %
-identifierstyle=\color{colIdentifier}, %
-keywordstyle=\color{colKeys}, %
-stringstyle=\color{colString}, %
-commentstyle=\color{colComments}
-}
-\lstset{language=java}
+\title{\bf Eclipse Vision System Plugin{Présentation générale}
+ Eclipse Vision System Plugin
 
+\chapter{Présentation générale}
+Eclipse Vision System permet de détecter des faits à partir d'un flux d'images et de creer des posts sur un réseau social. L'origine du flux d'images, les traitements apportés aux images ainsi que les faits recherchés dans celles-ci et les posts publiés sur un réseau social sont autant de points de variations qui sont pris en compte par Eclipse Vision System.
 
+\chapter{Architecture}
+Pour capturer toutes les variations possibles (exprimé ci-dessus), Eclipse Vision System est constitué d'un ensembles de plugins qui sont architecturé autour d'un plugin central systemVideo. 
 
-
-\title{\bf Rapport de programmation :\\ Eclipse Vision System Plugin}
-\author{Teko \bsc{hemazro}}
-\date{29 Mars 2012}
-
-\frenchbsetup{StandardLists=true}
-\begin{document}
-
-\maketitle
-\newpage
-\tableofcontents 
-\newpage
-
-\section{Présentation générale}
-Eclipse Vision System est un plugin est un simple plugin de vision capable de détecter des faits importants à partir d'images extraites d'une vidéo ou d'une webcam et de poster ces images sur un réseau social. Un scénario d'Eclipse Vision System peut se présenter ainsi :
-\begin{itemize}
-	\item Capture d'images à partir d'une vidéo ou d'une caméra;
-	\item Analyse de l'image; 
-	\item Traitement de l'image : détection d'effets particuliers sur l'image;
-	\item Publication de l'image.
-\end{itemize}
-
-Eclipse Vision System est donc architecturé autour d'un plugin central que nous appelerons par la suite {\it visionSystem}. {\it visionSystem} est le plugin de base fournissant plusieurs points d'extensions sur lesquels viendront se greffer les plugins effectuant les traitements enumérés ci-dessus.
-
-
-\section{Documentation}
 La réalisation du projet passe par le développement de plusieurs plugins que nous présenterons individuellement. On trouvera dans les sources les codes et commentaires associés pour chaque plugin au besoin.
 VisonSystem est le plugin central. Ce plugin fournit quatre points d'extensions spécifiques sur lesquels peuvent se greffer différents plugins, un poit d'extension par type de plugin.
 \begin{itemize}
@@ -104,8 +78,8 @@ Les différents points d'extensions( {\it imageAcquisitionExt, imageAnalysisExt,
 	\item IImageAcuquisition : 
 
 	\begin{lstlisting}
-	public void run () ;
-	public void setIImageAnalysis (IImageAnalysis analyse);
+	  public void run () ;
+	  public void setIImageAnalysis (IImageAnalysis analyse);
 	\end{lstlisting}
 	\item IImageAnalysis : 
 	\begin{lstlisting}

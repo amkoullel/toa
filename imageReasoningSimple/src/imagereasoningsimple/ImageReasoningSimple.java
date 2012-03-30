@@ -8,7 +8,6 @@ import interfaces.IImageReasoning;
 
 public class ImageReasoningSimple implements IImageReasoning {
 	private List<IImagePublish> publishers ;
-	private boolean once = false ;
 	
 	public ImageReasoningSimple() {
 		// TODO Auto-generated constructor stub
@@ -19,11 +18,9 @@ public class ImageReasoningSimple implements IImageReasoning {
 	public void reasonnig(List<Object> o) {
 		// TODO Auto-generated method stub
 		//System.out.println("publier ") ; 
-		if (!once) {
-			once = true ;
-		for (IImagePublish p : publishers)
-			p.publish("Rien", "Rien");
-		}
+		if (o.size() > 1)
+			for (IImagePublish p : publishers)
+				p.publish("Visage", "Nous avons plus de deux visages");
 	}
 
 	@Override
